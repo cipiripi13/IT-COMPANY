@@ -1,0 +1,314 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Author     : frontend
+*/
+
+
+
+
+
+/*FONTS*/
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Lateef&display=swap');
+
+
+
+*{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    margin: 0;
+}
+
+html{
+    font-size: 10px;
+}
+
+body{
+
+    font-size: 2.0rem;
+    font-family: 'Lateef', cursive;
+    color: #2C2D3C;
+    Line height: 2.6 rem;
+    letter-spacing: 0.54px;  
+}
+
+img{
+    max-width: 100%;
+}
+
+.clearfix:after{
+    clear: both;
+    content: '';
+    display: table;
+}
+
+
+.container{
+    margin: 0 auto;
+    width: 1170px;
+}
+
+a{
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-family: 'Anton', sans-serif;
+    color:  #6DD1FF;
+}
+
+
+/*DEFINISANJE HEADING-A*/
+h1{
+    font-size: 6rem;
+    line-height: 8.4rem;
+    letter-spacing: 1px;
+    color: #6DD1FF;
+}
+h2{
+    font-size: 4rem;
+    line-height: 8.4rem;
+    letter-spacing: 0.67px;
+    color:  #6DD1FF;
+    text-transform: uppercase;
+}
+
+
+.d-flex{
+    display: flex;
+    -webkit-display: flex;
+    -moz-display: flex;
+    -ms-display: flexbox;  
+}
+
+.wrap{
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+}
+
+
+.justify-between{
+    justify-content: space-between;
+    -webkit-justify-content: space-between;
+    -moz-justify-content: space-between;
+    -ms-flex-pack: justify;
+}
+
+.justify-end{
+    justify-content: flex-end;
+    -webkit-justify-content: flex-end;
+    -moz-justify-content: flex-end;
+    -ms-flex-pack: end;
+}
+
+.align-items-center{
+    align-items: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-flex-align: center;
+}
+
+.align-items-start{
+    align-items: flex-start;
+    -webkit-align-items: flex-start;
+    -moz-align-items: flex-start;
+    -ms-flex-align: start;
+}
+
+.two-column{
+    flex: 0 0 49%;
+    -webkit-flex: 0 0 49%;
+    -moz-flex: 0 0 49%;
+    -ms-flex:0 0 49%;
+}
+
+.four-column{
+    flex: 0 0 24%;
+    -webkit-flex: 0 0 24%;
+    -moz-flex: 0 0 24%;
+    -ms-flex:0 0 24%;
+}
+/* header style*/
+header .main-menu{
+    list-style: none;
+    padding: 0;
+}
+header .main-menu li{
+    margin-left: 68px;
+}
+header .main-menu li:first-of-type{
+    padding-left: 355px;   /*ubacila padding jer nije odvajalo logo i nav*/
+}
+header .main-menu li a {
+    display: block;
+    padding: 25px 0px;
+    color: #a8a8a8;
+    font-size: 1.6rem;
+    line-height: 1.9rem;
+    letter-spacing: 0.53px;
+    text-transform: capitalize; /*podesava se da je svako drugo slovo veliko,
+               ostala podesavanja smo dobili na invison*/
+               transform:all 0.5s linear;
+}
+header .main-menu li a.active,  /*targetiramo svaki a tag sa klasom active i kada se hoveruje treba da ima dodeljenu boju*/
+header .main-menu li a:hover{   /*i na inicijalno stanje gore se ubaci tranzicija*/
+    color: #1085ea;
+}
+header .main-menu li a:before{
+    content: '';
+    display: block;
+    width: 0px;
+    height: 2px;
+    background: #1085ea;
+    transition: all 0.5s linear;
+
+}
+header .main-menu li a.active::before,
+header .main-menu li a:hover::before{
+    width: 100%;   
+    /*ovim smo podesili da se kada se hoveruje a tag sa klasom activr pojavi linijica iznad slova koja zauzima 100%*/
+}
+/*HOME SECTION*/
+.home{
+    padding: 211px 0 181px;
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-size:contain; /* auto 100%*/
+}
+.home p{
+    margin-bottom: 32px;
+}
+.link-button{
+    display: inline-block;      /*stavljamo inline block kako bi se link  tj.okvir prosirio samo na sadrzaj */
+    padding: 10px 24px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    background: linear-gradient(139.4deg, #1085EA 0%, #0E9FE2 100%);
+    color: #ffffff;
+    font-family: 'Anton', sans-serif;
+}
+/*about start*/
+.about{
+    padding: 150px 0px;
+    position: relative;
+}
+.about .about-content{
+    flex: 0 0 46%;
+    -webkit-flex: 0 0 46%;   /*postavlaj se za sve pretrazivace*/
+    -moz-flex: 0 0 46%;
+    -ms-flex: 0 0 46%;
+}
+.about > img{          /*posto je slika direktan potomak sekcije koristimo znak >*/
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50%;  /*kako bi zauzela tacno 50% ekrana*/
+}
+.about .about-content p{
+    margin-bottom: 20px;
+}
+
+
+/*GORE SMO OBRADILI DVA NACINA KAKO SE SLIKA MOZE POSTAVITI
+1.PREKO BACKGROUND
+2. PREKO POSITION
+(RODITELJ I DETE)*/
+
+
+
+/*services start*/
+
+.services{
+    padding: 50px 0px;
+    text-align: center;
+}
+.services h2{
+    margin-bottom: 65px;
+}
+.services .services-item h3{   /*podesavanja h3*/
+    color: #1085EA;
+    font-size: 2rem;
+    line-height: 3rem;
+    letter-spacing: 0.71px;
+    text-transform: uppercase;
+}
+
+/*portfolio start*/
+.portfolio{
+    padding: 80px 0px;
+    text-align: center;
+}
+.portfolio h2{
+    margin-bottom: 32px;
+}
+.portfolio .portfolio-item img{
+    display: block;
+    width: 100%;
+    transition:all 0.5s linear;
+}
+.portfolio .portfolio-item{
+    position: relative;   /*prvom roditelju a to je article dajemo position relativ kako bi a tagu mogli da damo absol*/
+    overflow: hidden;   /*kako slika ne bi izlazila van okvira vec kako bi se uklapla u format i svaki visak se odsecao*/
+}                          /*a to je u okviru a taga .link-button*/
+.portfolio .portfolio-item .link-button{
+    position: absolute;
+    bottom: 30px;
+    left: 50%;               /*pomeren od leve ivice za 50%, a uz pomocu donjeg param po X-osi mi ga centriramo*/
+    transform: translateX(-50%);
+    display: none;
+    
+    /*da se ne prikazuje dok ne stavimo hover*/
+}
+.portfolio .portfolio-item:hover .link-button{
+    display: block;      /*tek nakon hovera dobijamo prikaz link-button*/
+}
+.portfolio .portfolio-item:hover img{
+    transform: scale(1.2);    /*to znaci da se na hover slika 1.2 puta poveca tj.da se zumira*/
+}
+
+/*contact style*/
+.contact{
+    padding: 148px 0px 61px;
+   background-size: cover;       /*PITANJE--- zasto mi iz css-a ne radi background za sliku????*/
+   background-repeat: no-repeat;
+}
+
+.contact h2{
+margin-bottom: 18px;
+text-align: center;
+}
+.contact aside iframe{
+    width: 100%;
+    height: 314px;
+}
+.contact .contact-form .form-group{
+    margin-bottom: 25px;
+}
+.contact .contact-form .form-element{
+    border: 1px solid white;
+    line-height: 4.5rem;
+    color: white;
+    width: 100%;
+    display: block;
+    padding: 0px 10px;
+    background-color: transparent;
+}
+.contact .contact-form .link-button{
+    border: none;
+}
+/*footer*/
+footer{
+    padding: 18px 0px 23px;
+}
+
+footer p{
+    color: white; 
+}
